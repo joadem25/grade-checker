@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade Checker</title>
+</head>
+<body style="background-image: url(/image/Skyscraper.jpg); background-size: 100%;">
+    <div style="background-color: rgb(206, 209, 214); height: 450px; width: 300px; margin-top: 150px; margin-left: 550px; border-radius: 10%; ">
+        <br><h3><marquee behavior="" direction=""> Welcome to Score Grade Checker</marquee></h3>
+        <p style="text-align: center;">Enter score below</p>
+        <input type="text" placeholder="Enter your name" id="nam"><i> (not compulsory)</i><p></p>
+        <input type="text" placeholder="Enter score" id="score"><br><hr>
+        <button onclick="checkGrade()" style="background-color: rgb(156, 156, 192); height: 50px; width: 200px; margin-left: 50px;">Check Grade</button>
+        <div id="dispGrade" style="text-align: center; margin-top: 20px;"></b></div>
+        <div id="disp" style="text-align: center; margin-top: 20px;"></div>
+        <div id="dispImage" style="height: 200px; width: 200px"></div>
+        <script>
+            function checkGrade(){
+                var myScore = score.value
+                var name = nam.value
+                var songA = new Audio("clapping.wav")
+                var songB = new Audio("clapB.wav")
+                var songC = new Audio("clapC.wav")
+                var songF = new Audio("booF.mp3")
+                if(myScore>=70 && myScore<=100){
+                    if(name==""){
+                        disp.innerText = "Excellent"
+                    }
+                    else{
+                        disp.innerText = name + ", you did excellently well, keep it up"
+                    }
+                    dispGrade.innerText = "GRADE IS A"
+                    songA.play()
+                    songF.pause()
+                }
+                else if(myScore>=60 && myScore<70){
+                    if(name==""){
+                        disp.innerText = "Very Good"  
+                    }
+                    else{
+                        disp.innerText = name + ", this is very good, you can do better"
+                    }
+                    dispGrade.innerText = "GRADE IS B"
+                    songB.play()
+                }
+                else if(myScore>=50 && myScore<60){
+                    if(name==""){
+                        disp.innerText = "Good"  
+                    }
+                    else{
+                        disp.innerText = name + ", this is good but you need to put more effort"
+                    }
+                    dispGrade.innerText = "GRADE IS C"
+                    songC.play()
+                }
+                else if(myScore>=45 && myScore<50){
+                    if(name==""){
+                        disp.innerText = "Pass"  
+                    }
+                    else{
+                        disp.innerText = name + ", you passed but not well, put in a lot of effort"
+                    }
+                    dispGrade.innerText = "GRADE IS D"
+                }
+                else if(myScore>=40 && myScore<45){
+                    if(name==""){
+                        disp.innerText = "Poor"  
+                    }
+                    else{
+                        disp.innerText = name + ", this is poor, you need to buckle up really"
+                    }
+                    dispGrade.innerText = "GRADE IS E"
+                }
+                else if(myScore==""){
+                    disp.innerText = "No score input, please input a score between 0 and 100"
+                    dispGrade.innerText = ""
+                }
+                else if(myScore>=0 && myScore<=39){
+                    if(name==""){
+                        disp.innerText = "Fail"  
+                    }
+                    else{
+                        disp.innerText = name + ", you failed, you need to sit down and think"
+                    }
+                    dispGrade.innerText = "GRADE IS F"
+                    songF.play()
+                    songA.pause() 
+                }
+                
+                else {
+                    disp.innerText = "Invalid input, please input a score between 0 and 100"
+                    dispGrade.innerText = ""
+                }
+            }
+        </script>
+    </div>
+    
+</body>
+</html>
